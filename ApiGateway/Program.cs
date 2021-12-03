@@ -1,5 +1,6 @@
 ﻿using System;
 using Azure.Identity;
+using Enmeshed.Tooling.Extensions;
 using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -22,7 +23,7 @@ namespace ApiGateway
                 .UseKestrel(options =>
                 {
                     options.AddServerHeader = false;
-                    options.Limits.MaxRequestBodySize = 20 * 1024 * 1024; // 20 MB
+                    options.Limits.MaxRequestBodySize = 20.Mebibytes();
                 })
                 .ConfigureServices(s => s.AddSingleton(builder))
                 .ConfigureAppConfiguration(AddAzureAppConfiguration)
