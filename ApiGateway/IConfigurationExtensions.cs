@@ -11,7 +11,7 @@ namespace ApiGateway
             return new AzureAppConfigurationConfiguration(configuration);
         }
     }
-    
+
     public class AzureAppConfigurationConfiguration
     {
         private readonly IConfigurationSection _azureAppConfigurationConfiguration;
