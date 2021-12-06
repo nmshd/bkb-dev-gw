@@ -1,0 +1,474 @@
+{
+  "Routes": [
+    {
+      "UpstreamPathTemplate": "/api/{version}/Challenges",
+      "UpstreamHttpMethod": [],
+
+      "DownstreamPathTemplate": "/api/{version}/Challenges",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "challenges",
+          "Port": 80
+        }
+      ],
+      "UpstreamHeaderTransform": {
+        "X-Forwarded-For": "{BaseUrl}"
+      }
+    },
+    {
+      "UpstreamPathTemplate": "/api/{version}/Challenges/{everything}",
+      "UpstreamHttpMethod": [],
+
+      "DownstreamPathTemplate": "/api/{version}/Challenges/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "challenges",
+          "Port": 80
+        }
+      ],
+      "UpstreamHeaderTransform": {
+        "X-Forwarded-For": "{BaseUrl}"
+      }
+    },
+    {
+      "UpstreamPathTemplate": "/api/{version}/DatawalletModifications",
+      "UpstreamHttpMethod": [],
+
+      "DownstreamPathTemplate": "/api/{version}/DatawalletModifications",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "synchronization",
+          "Port": 80
+        }
+      ],
+
+      "UpstreamHeaderTransform": {
+        "X-Forwarded-For": "{BaseUrl}"
+      }
+    },
+    {
+      "UpstreamPathTemplate": "/api/{version}/DatawalletModifications/{everything}",
+      "UpstreamHttpMethod": [],
+
+      "DownstreamPathTemplate": "/api/{version}/DatawalletModifications/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "synchronization",
+          "Port": 80
+        }
+      ],
+
+      "UpstreamHeaderTransform": {
+        "X-Forwarded-For": "{BaseUrl}"
+      }
+    },
+    {
+      "UpstreamPathTemplate": "/api/{version}/Datawallet",
+      "UpstreamHttpMethod": [],
+
+      "DownstreamPathTemplate": "/api/{version}/Datawallet",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "synchronization",
+          "Port": 80
+        }
+      ],
+
+      "UpstreamHeaderTransform": {
+        "X-Forwarded-For": "{BaseUrl}"
+      }
+    },
+    {
+      "UpstreamPathTemplate": "/api/{version}/Datawallet/{everything}",
+      "UpstreamHttpMethod": [],
+
+      "DownstreamPathTemplate": "/api/{version}/Datawallet/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "synchronization",
+          "Port": 80
+        }
+      ],
+
+      "UpstreamHeaderTransform": {
+        "X-Forwarded-For": "{BaseUrl}"
+      }
+    },
+    {
+      "UpstreamPathTemplate": "/api/{version}/Files",
+      "UpstreamHttpMethod": [],
+
+      "DownstreamPathTemplate": "/api/{version}/Files",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "files",
+          "Port": 80
+        }
+      ],
+
+      "UpstreamHeaderTransform": {
+        "X-Forwarded-For": "{BaseUrl}"
+      }
+    },
+    {
+      "UpstreamPathTemplate": "/api/{version}/Files/{everything}",
+      "UpstreamHttpMethod": [],
+
+      "DownstreamPathTemplate": "/api/{version}/Files/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "files",
+          "Port": 80
+        }
+      ],
+
+      "UpstreamHeaderTransform": {
+        "X-Forwarded-For": "{BaseUrl}"
+      }
+    },
+    {
+      "UpstreamPathTemplate": "/api/{version}/Messages",
+      "UpstreamHttpMethod": [],
+
+      "DownstreamPathTemplate": "/api/{version}/Messages",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "messages",
+          "Port": 80
+        }
+      ],
+
+      "UpstreamHeaderTransform": {
+        "X-Forwarded-For": "{BaseUrl}"
+      }
+    },
+    {
+      "UpstreamPathTemplate": "/api/{version}/Messages/{everything}",
+      "UpstreamHttpMethod": [],
+
+      "DownstreamPathTemplate": "/api/{version}/Messages/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "messages",
+          "Port": 80
+        }
+      ],
+
+      "UpstreamHeaderTransform": {
+        "X-Forwarded-For": "{BaseUrl}"
+      }
+    },
+    {
+      "UpstreamPathTemplate": "/api/{version}/Relationships",
+      "UpstreamHttpMethod": [],
+
+      "DownstreamPathTemplate": "/api/{version}/Relationships",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "relationships",
+          "Port": 80
+        }
+      ],
+
+      "UpstreamHeaderTransform": {
+        "X-Forwarded-For": "{BaseUrl}"
+      }
+    },
+    {
+      "UpstreamPathTemplate": "/api/{version}/Relationships/{everything}",
+      "UpstreamHttpMethod": [],
+
+      "DownstreamPathTemplate": "/api/{version}/Relationships/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "relationships",
+          "Port": 80
+        }
+      ],
+
+      "UpstreamHeaderTransform": {
+        "X-Forwarded-For": "{BaseUrl}"
+      }
+    },
+    {
+      "UpstreamPathTemplate": "/api/{version}/RelationshipRequests",
+      "UpstreamHttpMethod": [],
+
+      "DownstreamPathTemplate": "/api/{version}/RelationshipRequests",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "relationships",
+          "Port": 80
+        }
+      ],
+
+      "UpstreamHeaderTransform": {
+        "X-Forwarded-For": "{BaseUrl}"
+      }
+    },
+    {
+      "UpstreamPathTemplate": "/api/{version}/RelationshipRequests/{everything}",
+      "UpstreamHttpMethod": [],
+
+      "DownstreamPathTemplate": "/api/{version}/RelationshipRequests/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "relationships",
+          "Port": 80
+        }
+      ],
+
+      "UpstreamHeaderTransform": {
+        "X-Forwarded-For": "{BaseUrl}"
+      }
+    },
+    {
+      "UpstreamPathTemplate": "/api/{version}/RelationshipTerminationRequests",
+      "UpstreamHttpMethod": [],
+
+      "DownstreamPathTemplate": "/api/{version}/RelationshipTerminationRequests",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "relationships",
+          "Port": 80
+        }
+      ],
+
+      "UpstreamHeaderTransform": {
+        "X-Forwarded-For": "{BaseUrl}"
+      }
+    },
+    {
+      "UpstreamPathTemplate": "/api/{version}/RelationshipTerminationRequests/{everything}",
+      "UpstreamHttpMethod": [],
+
+      "DownstreamPathTemplate": "/api/{version}/RelationshipTerminationRequests/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "relationships",
+          "Port": 80
+        }
+      ],
+
+      "UpstreamHeaderTransform": {
+        "X-Forwarded-For": "{BaseUrl}"
+      }
+    },
+    {
+      "UpstreamPathTemplate": "/api/{version}/RelationshipTemplates",
+      "UpstreamHttpMethod": [],
+
+      "DownstreamPathTemplate": "/api/{version}/RelationshipTemplates",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "relationships",
+          "Port": 80
+        }
+      ],
+
+      "UpstreamHeaderTransform": {
+        "X-Forwarded-For": "{BaseUrl}"
+      }
+    },
+    {
+      "UpstreamPathTemplate": "/api/{version}/RelationshipTemplates/{everything}",
+      "UpstreamHttpMethod": [],
+
+      "DownstreamPathTemplate": "/api/{version}/RelationshipTemplates/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "relationships",
+          "Port": 80
+        }
+      ],
+
+      "UpstreamHeaderTransform": {
+        "X-Forwarded-For": "{BaseUrl}"
+      }
+    },
+    {
+      "UpstreamPathTemplate": "/api/{version}/Tokens",
+      "UpstreamHttpMethod": [],
+
+      "DownstreamPathTemplate": "/api/{version}/Tokens",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "tokens",
+          "Port": 80
+        }
+      ],
+
+      "UpstreamHeaderTransform": {
+        "X-Forwarded-For": "{BaseUrl}"
+      }
+    },
+    {
+      "UpstreamPathTemplate": "/api/{version}/Tokens/{everything}",
+      "UpstreamHttpMethod": [],
+
+      "DownstreamPathTemplate": "/api/{version}/Tokens/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "tokens",
+          "Port": 80
+        }
+      ],
+
+      "UpstreamHeaderTransform": {
+        "X-Forwarded-For": "{BaseUrl}"
+      }
+    },
+    {
+      "UpstreamPathTemplate": "/api/{version}/Devices",
+      "UpstreamHttpMethod": [],
+
+      "DownstreamPathTemplate": "/api/{version}/Devices",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "devices",
+          "Port": 80
+        }
+      ],
+      "UpstreamHeaderTransform": {
+        "X-Forwarded-For": "{BaseUrl}"
+      }
+    },
+    {
+      "UpstreamPathTemplate": "/api/{version}/Devices/{everything}",
+      "UpstreamHttpMethod": [],
+
+      "DownstreamPathTemplate": "/api/{version}/Devices/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "devices",
+          "Port": 80
+        }
+      ],
+      "UpstreamHeaderTransform": {
+        "X-Forwarded-For": "{BaseUrl}"
+      }
+    },
+    {
+      "UpstreamPathTemplate": "/api/{version}/Identities",
+      "UpstreamHttpMethod": [],
+
+      "DownstreamPathTemplate": "/api/{version}/Identities",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "devices",
+          "Port": 80
+        }
+      ],
+      "UpstreamHeaderTransform": {
+        "X-Forwarded-For": "{BaseUrl}"
+      }
+    },
+    {
+      "UpstreamPathTemplate": "/api/{version}/Identities/{everything}",
+      "UpstreamHttpMethod": [],
+
+      "DownstreamPathTemplate": "/api/{version}/Identities/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "devices",
+          "Port": 80
+        }
+      ],
+      "UpstreamHeaderTransform": {
+        "X-Forwarded-For": "{BaseUrl}"
+      }
+    },
+    {
+      "UpstreamPathTemplate": "/api/{version}/SyncRuns",
+      "UpstreamHttpMethod": [],
+
+      "DownstreamPathTemplate": "/api/{version}/SyncRuns",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "synchronization",
+          "Port": 80
+        }
+      ],
+      "UpstreamHeaderTransform": {
+        "X-Forwarded-For": "{BaseUrl}"
+      }
+    },
+    {
+      "UpstreamPathTemplate": "/api/{version}/SyncRuns/{everything}",
+      "UpstreamHttpMethod": [],
+
+      "DownstreamPathTemplate": "/api/{version}/SyncRuns/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "synchronization",
+          "Port": 80
+        }
+      ],
+      "UpstreamHeaderTransform": {
+        "X-Forwarded-For": "{BaseUrl}"
+      }
+    },
+    {
+      "UpstreamPathTemplate": "/connect/token",
+      "UpstreamHttpMethod": [],
+
+      "DownstreamPathTemplate": "/connect/token",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "devices",
+          "Port": 80
+        }
+      ],
+      "UpstreamHeaderTransform": {
+        "X-Forwarded-For": "{BaseUrl}"
+      }
+    },
+    {
+      "UpstreamPathTemplate": "/.well-known/{everything}",
+      "UpstreamHttpMethod": [],
+
+      "DownstreamPathTemplate": "/.well-known/{everything}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "devices",
+          "Port": 80
+        }
+      ],
+      "UpstreamHeaderTransform": {
+        "X-Forwarded-For": "{BaseUrl}"
+      }
+    }
+  ],
+  "GlobalConfiguration": {
+    "RequestIdKey": "OcRequestId",
+    "BaseUrl": "http://gateway"
+  }
+}
