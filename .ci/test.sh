@@ -5,4 +5,4 @@ set -x
  
 dotnet restore
 dotnet build --no-restore
-dotnet test --no-restore --no-build --logger "junit;LogFilePath=test-results/results.xml"
+dotnet test --no-restore --no-build
