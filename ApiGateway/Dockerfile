@@ -13,6 +13,6 @@ EXPOSE 80
 WORKDIR /app
 COPY --from=build-env /app .
 
-LABEL org.opencontainers.image.source = "https://github.com/nmshd/bkb-gw"
+LABEL org.opencontainers.image.source = "https://github.com/nmshd/bkb-dev-gw"
 
 ENTRYPOINT ["dotnet", "ApiGateway.dll"]
