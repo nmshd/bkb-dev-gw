@@ -1,66 +1,65 @@
 using System.Net;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
 
-namespace ApiGateway
+namespace ApiGateway;
+
+public class ServiceHealthCheck : IHealthCheck
 {
-    public class ServiceHealthCheck : IHealthCheck
+    private static readonly HttpClient HTTP_CLIENT = new();
+    private readonly IConfiguration _configuration;
+
+    public ServiceHealthCheck(IConfiguration configuration)
     {
-        private static readonly HttpClient HTTP_CLIENT = new();
-        private readonly IConfiguration _configuration;
+        _configuration = configuration;
+    }
 
-        public ServiceHealthCheck(IConfiguration configuration)
+    public async Task<HealthCheckResult> CheckHealthAsync(HealthCheckContext context, CancellationToken cancellationToken = default)
+    {
+        var serviceHealthEndpoints = _configuration.GetSection("HealthCheck:Urls").Get<string[]>();
+
+        var tasks = serviceHealthEndpoints.Select(async serviceHealthEndpoint =>
         {
-            _configuration = configuration;
-        }
+            var serviceHost = new Uri(serviceHealthEndpoint).Host;
 
-        public async Task<HealthCheckResult> CheckHealthAsync(HealthCheckContext context, CancellationToken cancellationToken = default)
-        {
-            var serviceHealthEndpoints = _configuration.GetSection("HealthCheck:Urls").Get<string[]>();
-
-            var tasks = serviceHealthEndpoints.Select(async serviceHealthEndpoint =>
+            try
             {
-                var serviceHost = new Uri(serviceHealthEndpoint).Host;
+                var result = await HTTP_CLIENT.GetAsync(serviceHealthEndpoint, cancellationToken);
 
-                try
-                {
-                    var result = await HTTP_CLIENT.GetAsync(serviceHealthEndpoint, cancellationToken);
+                return
+                    new ServiceHealth
+                    {
+                        HealthCheckEndpoint = serviceHost,
+                        StatusCode = result.StatusCode,
+                        Status = result.StatusCode == HttpStatusCode.OK ? "Healthy" : "Unhealthy",
+                        Description = await result.Content.ReadAsStringAsync(cancellationToken)
+                    };
+            }
+            catch (HttpRequestException ex)
+            {
+                return
+                    new ServiceHealth
+                    {
+                        HealthCheckEndpoint = serviceHost,
+                        StatusCode = ex.StatusCode,
+                        Status = "Unhealthy",
+                        Description = "An unexpected error occured."
+                    };
+            }
+        }).ToList();
 
-                    return
-                        new ServiceHealth
-                        {
-                            HealthCheckEndpoint = serviceHost,
-                            StatusCode = result.StatusCode,
-                            Status = result.StatusCode == HttpStatusCode.OK ? "Healthy" : "Unhealthy",
-                            Description = await result.Content.ReadAsStringAsync(cancellationToken)
-                        };
-                }
-                catch (HttpRequestException ex)
-                {
-                    return
-                        new ServiceHealth
-                        {
-                            HealthCheckEndpoint = serviceHost,
-                            StatusCode = ex.StatusCode,
-                            Status = "Unhealthy",
-                            Description = "An unexpected error occured."
-                        };
-                }
-            }).ToList();
+        var healthCheckResults = await Task.WhenAll(tasks);
 
-            var healthCheckResults = await Task.WhenAll(tasks);
-
-            var resultData = healthCheckResults.ToDictionary(r => r.HealthCheckEndpoint, r => (object) new {r.Status});
+        var resultData = healthCheckResults.ToDictionary(r => r.HealthCheckEndpoint, r => (object) new {r.Status});
 
 
-            return healthCheckResults.All(r => r.StatusCode == HttpStatusCode.OK) ? HealthCheckResult.Healthy("", resultData) : HealthCheckResult.Unhealthy("", null, resultData);
-        }
+        return healthCheckResults.All(r => r.StatusCode == HttpStatusCode.OK) ? HealthCheckResult.Healthy("", resultData) : HealthCheckResult.Unhealthy("", null, resultData);
     }
+}
 
-    public class ServiceHealth
-    {
-        public string HealthCheckEndpoint { get; set; }
-        public HttpStatusCode? StatusCode { get; set; }
-        public string Status { get; set; }
-        public string Description { get; set; }
-    }
+public class ServiceHealth
+{
+    public string HealthCheckEndpoint { get; set; }
+    public HttpStatusCode? StatusCode { get; set; }
+    public string Status { get; set; }
+    public string Description { get; set; }
 }
