@@ -77,6 +77,6 @@ public class Startup
             })
         };
 
-        return httpContext.Response.WriteAsync(JsonSerializer.Serialize(responseObject, new JsonSerializerOptions { WriteIndented = true }));
+        return httpContext.Response.WriteAsync(JsonSerializer.Serialize(responseObject, new JsonSerializerOptions {WriteIndented = true}));
     }
 }
