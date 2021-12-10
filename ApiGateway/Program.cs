@@ -1,10 +1,6 @@
-﻿using System;
-using Azure.Identity;
+﻿using Azure.Identity;
 using Enmeshed.Tooling.Extensions;
 using Microsoft.AspNetCore;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
 
 namespace ApiGateway
 {
