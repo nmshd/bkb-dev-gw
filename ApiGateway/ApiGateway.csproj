@@ -11,13 +11,13 @@
 
 
 	<ItemGroup>
-		<PackageReference Include="Azure.Identity" Version="1.5.0" />
+		<PackageReference Include="Azure.Identity" Version="1.6.0" />
 		<PackageReference Include="Enmeshed.Tooling" Version="1.1.2" />
 		<PackageReference Include="Microsoft.IdentityModel.Logging" Version="6.15.0" />
-		<PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.14.0" />
+		<PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.15.1" />
 		<PackageReference Include="Microsoft.Extensions.Configuration.AzureAppConfiguration" Version="4.5.1" />
 		<PackageReference Include="NetEscapades.AspNetCore.SecurityHeaders" Version="0.16.1" />
-		<PackageReference Include="Ocelot" Version="17.0.0" />
+		<PackageReference Include="Ocelot" Version="18.0.0" />
 	</ItemGroup>
 
 </Project>
