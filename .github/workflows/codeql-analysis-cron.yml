@@ -1,17 +1,14 @@
 name: "CodeQL"
 
 on:
-  push:
-    branches: [main]
-  pull_request:
-    branches: [main]
+  schedule:
+    - cron: "45 19 * * 4"
 
 jobs:
   analyze:
     name: Analyze
     runs-on: ubuntu-latest
     permissions:
-      contents: read
       security-events: write
 
     steps:
